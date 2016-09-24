@@ -1,26 +1,14 @@
-<?php 
- include_once("index.html"); 
- require_once("navigation.php");
-?>
-
-
 <html>
  </head>
-
  </head>
 
  <body>
-  <img src="/log.png">  
-
+  <?php 
+   require_once("navigation.php");
+   require_once("footer.php");
+  ?>
  
+
  </body>
 
 </html>
-
-
-
-
-
-
-
-

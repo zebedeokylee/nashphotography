@@ -1,5 +1,3 @@
-<html>
- <body>
   <div class="navigation">
    <ul>
     <li>Gallery</li>
@@ -8,5 +6,3 @@
     <li>Contact</li>
    </ul>
   </div>
- </body>
-</html>
