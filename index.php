@@ -1,4 +1,26 @@
 <?php 
  include_once("index.html"); 
- include_once("navigation.php");
+ require_once("navigation.php");
 ?>
+
+
+<html>
+ </head>
+
+ </head>
+
+ <body>
+  <img src="/log.png">  
+
+ 
+ </body>
+
+</html>
+
+
+
+
+
+
+
+
