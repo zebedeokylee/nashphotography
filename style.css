@@ -1,0 +1,87 @@
+
+.imageBackground {
+ background: url(photos/main.jpg) no-repeat center center fixed;
+ -webkit-background-size: cover;
+}
+
+.orangeBackground {
+ background-color: #FE8D74;
+}
+
+.purpleBackground {
+ background-color: #B7DFCE;
+}
+
+footer {
+ position: absolute;
+ bottom: 5px;
+}
+
+nav {
+ width: 45%
+}
+
+.subnavigation { 
+ width: 60%
+}
+
+.center {
+ margin: auto;
+ text-align: center;
+}
+
+nav > ul > li {
+ display: inline;
+ padding: 25px;
+}
+
+.subnavigation > ul > li {
+ display: inline;
+ padding: 50px;
+}
+
+nav > ul > li > a {
+ color: white;
+}
+
+.subnavigation > ul > li {
+ color: #900C3F;
+}
+
+.navFont {
+ text-decoration: none;
+ font-family: Georgia, serif;
+ font-size: 20px;
+}
+
+.slide {
+ width: 15%;
+}
+
+.selectedSlide {
+ width: 50%;
+}
+
+.slideShow > li {
+ display: inline;
+ padding: 5px;
+}
+
+.login {
+ margin:auto;
+ width: 50%;
+}
+
+.customerProfiles > li {
+ display: inline;
+ padding: 25px
+}
+
+.customerProfilePicture {
+ width: 30%;
+}
+
+
+
+
+

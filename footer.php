@@ -1,4 +1,4 @@
  <footer>
-  <img src="logo.png">  
+  <a href="index.php"><img class="logo" src="logo.png"></a>
  </footer>
 

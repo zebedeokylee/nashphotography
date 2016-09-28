@@ -1,8 +1,8 @@
-  <div class="navigation">
+  <nav class="center">
    <ul>
-    <li>Gallery</li>
-    <li>Customer Photos</li>
-    <li>Pricing</li>
-    <li>Contact</li>
+    <li><a class="navFont" href="gallery.php">Gallery</a></li>
+    <li><a class="navFont" href="customerPhotosLogin.php">Customer Photos</a></li>
+    <li><a class="navFont" href="pricing.php">Pricing</a></li>
+    <li><a class="navFont" href="contact.php">Contact</a></li>
    </ul>
-  </div>
+  </nav>
