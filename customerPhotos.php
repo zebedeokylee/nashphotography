@@ -6,7 +6,7 @@
   ?>
  </head>
 
- <body class="purpleBackground">
+ <body class="greenBackground">
   <?php 
    require_once("navigation.php");
   ?>

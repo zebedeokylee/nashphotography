@@ -1,4 +1,5 @@
   <nav class="center">
+   <a href="index.php"><img class="logo" src="logo.png"></a>
    <ul>
     <li><a class="navFont" href="gallery.php">Gallery</a></li>
     <li><a class="navFont" href="customerPhotosLogin.php">Customer Photos</a></li>

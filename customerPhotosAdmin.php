@@ -6,18 +6,29 @@
   ?>
  </head>
 
- <body class="purpleBackground">
+ <body class="greenBackground">
+  
+  <img class="newCustomerIcon" src="add.png" title="Create New Customer"/>
+  
   <?php 
    require_once("navigation.php");
   ?>
 
-  <div class="center">
-   <ul class="customerProfiles">
-    <li class="rectangle"></li>
-    <li><img class="customerProfilePicture" src="photos/main.jpg"></li>
-    <li><img class="customerProfilePicture" src="photos/main.jpg"></li>
-    <li><img class="customerProfilePicture" src="photos/main.jpg"></li>
-   </ul>
+  <div class="customerProfiles center">
+     <div>
+      <img class="customerProfilePicture" src="photos/main.jpg">
+      <div>Customer 1<img class="addIcon" src="add.png"></div>
+     </div>
+     
+     <div>
+      <img class="customerProfilePicture" src="photos/main.jpg">
+      <div>Customer 2<img class="addIcon" src="add.png"></div>
+     </div>
+   
+     <div>
+      <img class="customerProfilePicture" src="photos/main.jpg">
+      <div>Customer 3<img class="addIcon" src="add.png"></div>
+     </div>
   </div>
 
   <?php

@@ -1,4 +1,5 @@
  <footer>
-  <a href="index.php"><img class="logo" src="logo.png"></a>
+  <span>Phone: (xxx)-xxx-xxxx</span>
+  <span>Email: email@email.com</span>
  </footer>
 

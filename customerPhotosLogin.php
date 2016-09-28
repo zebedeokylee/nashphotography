@@ -6,15 +6,17 @@
   ?>
  </head>
 
- <body class="purpleBackground">
+ <body class="greenBackground">
   <?php 
    require_once("navigation.php");
   ?>
 
   <form class="login">
     Username: <input type="text" name="username">
+    <br>
     Password: <input type="text" name="password">
-   <input type="submit" value="Login">
+    <br>
+    <input type="submit" value="Login">
   </form>
  
   
