@@ -12,7 +12,7 @@
 
 
   private $host = "us-cdbr-iron-east-04.cleardb.net";
-  private $db = "heroku_4254fa8ab32f37d?";
+  private $db = "heroku_4254fa8ab32f37d";
   private $user = "bd1074010cdff0";
   private $password = "3bdb2b75";
 
