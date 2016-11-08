@@ -2,7 +2,7 @@
  <head>
   <title>Nash Photography</title>
   <?php 
-   require_once("links.php");
+   include("links.php");
   ?>
  </head>
 

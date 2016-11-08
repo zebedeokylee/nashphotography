@@ -27,59 +27,90 @@ footer {
  text-align: center;
 }
 
-.forceBottomPageLogo {
- position: absolute;
- bottom: 5px;
+nav > div > ul {
+ width: 60%;
 }
 
 nav {
- width: 50%
+ margin-bottom: 15px;
 }
 
-.subnavigation { 
- width: 60%
+.logo {
+ margin-left: auto;
+ margin-right: auto;
+ width: 20%;
+ margin-bottom: 15px; 
 }
 
+/*
+.subnavigation > ul {
+ width: 70%; 
+}
+*/
 .center {
  margin: auto;
- text-align: center;
 }
 
-nav > ul > li {
+nav > div > ul > li {
  display: inline;
- padding: 25px;
+ padding: 6%;
 }
 
+/*
 .subnavigation > ul > li {
- display: inline;
- padding: 50px;
+ padding: 7%;
 }
+*/
 
-nav > ul > li > a {
+nav > div > ul > li > a {
  color: white;
 }
 
 .subnavigation > ul > li {
  color: #900C3F;
 }
-
+ 
 .navFont {
  text-decoration: none;
  font-family: Georgia, serif;
  font-size: 23px;
 }
 
+.inlineCenter {
+ text-align: center;
+}
+
+.slideShow > div, .slideShow > ul {
+ width: 40%;
+ margin: auto;
+}
+
+.slideShow {
+ padding-top: 25px;
+}
+
+.slideShow > ul {
+ padding-top: 15px;
+}
+
 .slide {
- width: 15%;
+ width: 24%;
 }
 
 .selectedSlide {
- width: 50%;
+ width: 100%;
 }
 
-.slideShow > li {
+.slides > li {
  display: inline;
- padding: 5px;
+ padding: 1%;
+}
+
+.arrow {
+ width: 20px;
+ position: relative;
+ top: 50%;
+ transform: translateY(-75%);
 }
 
 .login {
@@ -94,14 +125,25 @@ nav > ul > li > a {
  padding: 25px;
 }
 
+.customerProfiles {
+ width: 40%;
+}
+
 .customerProfilePicture {
- width: 40%
+ width: 100%;
+}
+
+.customerName {
+ text-align: center;
+}
+
+.customerName > form {
+ display:inline; 
 }
 
 .addIcon {
- margin-left: 10px;
- margin-top: 5px;
- width: 1.25%;
+ width: 3%;
+ float: right;
 }
 
 .newCustomerIcon {
@@ -115,9 +157,4 @@ nav > ul > li > a {
  margin-left: 50px;
  width: 50%;
 }
-
-
-
-
-
 
