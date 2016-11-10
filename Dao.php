@@ -16,13 +16,29 @@
   private $password = "3bdb2b75";
 */
    public function getGalleryPhotos() {
-   $galleryPhotos = glob("photos/gallery/*.jpg");
-   return $galleryPhotos;
+   $galleryPhotos = glob("photos/gallery/*");
+   $i = 0;
+   $filteredGalleryPhotos = array();
+   foreach($galleryPhotos as $photo) {
+    if($photo != "." && $photo != "photos/gallery/zipfile.zip") {
+ 		$filteredGalleryPhotos[$i] = $photo;
+		$i++;
+	}
+   }
+   return $filteredGalleryPhotos;
   }
 
   public function getCustomerPhotos($id, $relativeDirectory="") {
-   $customerPhotos = glob($relativeDirectory . "photos/customerPhotos/" . $id . "/*.jpg");
-   return $customerPhotos;
+   $customerPhotos = glob($relativeDirectory . "photos/customerPhotos/" . $id . "/*");
+   $i = 0;
+   $filteredCustomerPhotos = array();
+   foreach($customerPhotos as $photo) {
+    if($photo != "." && $photo != "photos/customerPhotos/" . $id . "/zipfile.zip") {
+ 		$filteredCustomerPhotos[$i] = $photo;
+		$i++;
+	}
+   }
+   return $filteredCustomerPhotos;
   }
   
   public function getCustomerDirectories() {
@@ -107,7 +123,7 @@
   
   public function insertCustomer($username, $password, $firstName, $lastName, $isActive) {
    $conn =$this->getConnection();
-   $query = "insert into users (username, password, firstname, lastname, adminPermission, isActive) values (:username, :password, :firstName, :lastName, 0, isActive)";
+   $query = "insert into users (username, password, firstname, lastname, adminPermission, isActive) values (:username, :password, :firstName, :lastName, 0, :isActive)";
    $q = $conn->prepare($query);
    $q->bindParam(":username", $username);
    $q->bindParam(":password", $password);

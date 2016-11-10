@@ -3,11 +3,13 @@
 	session_start();
 
  if(isset($_GET["customerId"]) && isset($_SESSION["adminPermission"]) && $_SESSION["adminPermission"]) {
-   	//echo $_GET["customerId"];
 	$_SESSION["loadCustomerId"] = $_GET["customerId"]; 
-   	header("Location: ../customerPhotos.php");
+ 	header("Location: customerPhotosHandler.php");	
+	exit;
  } else {
-	//TODO: Add error handling
+	$_SESSION["status"] = "You do not have permission to view customer photos or the customer id is not set";
+ 	header("Location: ../customerPhotosAdmin.php");	
+	exit;
  }
 
 ?>

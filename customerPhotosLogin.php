@@ -6,16 +6,16 @@
  if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
     if(isset($_SESSION["adminPermission"]) && $_SESSION["adminPermission"]) {
 		header("Location: customerPhotosAdmin.php");
+		exit;
 	} else {
- 		header("Location: customerPhotos.php");
+ 		header("Location: handlers/customerPhotosHandler.php");
+		exit;
 	}
  }
  
  //Select Page
  $_SESSION["selectedPage"] = "customerPhotos";
 
- print_r($_SESSION);
- 
  //Get info from unsuccessful login attempt and clear it
  $username = "";
  if(isset($_SESSION["username"])) {

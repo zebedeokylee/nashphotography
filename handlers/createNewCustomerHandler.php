@@ -5,14 +5,14 @@
  //Redirect if not logged in 
  if(isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] || !isset($_SESSION["loggedIn"])) {
 	$_SESSION["status"] = "You must log in first";
-	header("Location: customerPhotosLogin.php");
+	header("Location: ../customerPhotosLogin.php");
     exit;
  } 	 
  
  //Redirect if not admin
  if(!$_SESSION["adminPermission"]) {
 	$_SESSION["status"] = "You do not have admin permission to create a new customer";
- 	header("Location: customerPhotos.php");	
+ 	header("Location: ../customerPhotos.php");	
  }
  
  if(isset($_SESSION["adminPermission"]) && $_SESSION["adminPermission"]) {

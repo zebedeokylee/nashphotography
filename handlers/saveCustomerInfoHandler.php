@@ -12,7 +12,7 @@
  //Redirect if not admin
  if(!$_SESSION["adminPermission"]) {
 	$_SESSION["status"] = "You do not have admin permission to update customer information.";
- 	header("Location: ../customerPhotos.php");	
+ 	header("Location: customerPhotosHandler.php");	
  }
  
  require_once("../Dao.php");
@@ -79,7 +79,7 @@
  //Check username is unique
  $dao = new Dao();
  $existingCustomerWithUsername = $dao->getCustomerByUsername($customerUsername);
- if(sizeof($existingCustomerWithUsername) != 0 && $customerId != $existingCustomerWithUsername["id"]) {
+ if($existingCustomerWithUsername != "" && sizeof($existingCustomerWithUsername) != 0 && $customerId != $existingCustomerWithUsername["id"]) {
  	if(!isset($_SESSION["customerUsernameStatus"]) || $_SESSION["customerUsernameStatus"] == "") {
 		$_SESSION["customerUsernameStatus"] = "Invalid username - this username is alread in use. Choose another username";
 	} else {
@@ -88,7 +88,7 @@
  }
 
  //If there were erros in input, return those error messages to the user
- if(isset($_SESSION["customerUsernameStatus"]) || isset($_SESSION["customerFirstNameStatus"]) || isset($_SESSION["customerLastNameStatus"]) || isset($_SESSION["passwordStatus"])) {   
+ if(isset($_SESSION["customerUsernameStatus"]) || isset($_SESSION["customerFirstNameStatus"]) || isset($_SESSION["customerLastNameStatus"]) || isset($_SESSION["customerPasswordStatus"])) {   
  	unset($_SESSION["loadCustomerId"]);   //We don't want to reload the customer info, we want to use the saved values the user entered in 
 	$_SESSION["customerId"] = $customerId;
  	$_SESSION["customerUsername"] = $customerUsername;

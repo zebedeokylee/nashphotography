@@ -152,11 +152,11 @@ nav > div > ul > li > a {
 }
 
 .customerProfiles > div {
- padding: 25px;
+ padding-top: 25px;
 }
 
 .customerProfiles {
- width: 40%;
+ width: 45%;
 }
 
 .customerProfilePicture {

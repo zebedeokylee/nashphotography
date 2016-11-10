@@ -5,7 +5,6 @@
  //Select Page
  $_SESSION["selectedPage"] = "gallery";
   
- print_r($_SESSION);
 ?>
 
 <html>
@@ -24,11 +23,19 @@
   
    <?php
     $dao = new Dao();
-    $gallery = $dao -> getGalleryPhotos();    
     
+
+	try {
+		$gallery = $dao -> getGalleryPhotos();    
+	} catch(Exception $e) {
+		echo "<div class=\"errorMessage\">Error when getting gallery photos </div>";
+	}
+	
 	$_SESSION["gallerySize"] = sizeof($gallery);
- 	if(!isset($_SESSION["slideShowIndex"])) {
-		$_SESSION["slideShowIndex"] = 0;
+ 	if(!isset($_SESSION["galleryIndex1"])) {
+		$_SESSION["galleryIndex1"] = 0;
+		$_SESSION["galleryIndex2"] = 1;
+		$_SESSION["galleryIndex3"] = 2;
 	}
   	echo "<div class=\"slideShow\">";
   	echo "<div><img class=\"selectedSlide\" src=\"" . $gallery[0] . "\"></div>";
@@ -36,11 +43,12 @@
     echo "<ul class=\"slides\">";
     echo "<li> <form action=\"handlers/leftArrowHandler.php\">";
 	echo "<input type=\"image\" class=\"arrow\" src=\"LeftArrow.png\"/></form></li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["slideShowIndex"]] . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["slideShowIndex"] + 1] . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["slideShowIndex"] + 2] . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex1"]] . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex2"]] . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex3"]] . "\"</li>";
+    echo "<li> <form action=\"handlers/RightArrowHandler.php\">";
+	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
    ?>
-    <li><img class="arrow" src="RightArrow.png"></li>
    </ul>
   </div>
 

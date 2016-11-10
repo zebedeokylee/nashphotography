@@ -11,7 +11,7 @@
  //Redirect if not admin
  if(!$_SESSION["adminPermission"]) {
 	$_SESSION["status"] = "You do not have admin permission to view the customer admin page";
- 	header("Location: customerPhotos.php");	
+ 	header("Location: handlers/customerPhotosHandler.php");	
  }
 
  //Select Page
@@ -24,7 +24,6 @@
 	unset($_SESSION["status"]);
  }
   
- print_r($_SESSION);
 ?>
 
 <html>
@@ -44,7 +43,12 @@
    require_once("navigation.php");
    
    $dao = new Dao();
-   $customers = $dao->getCustomers();    
+	try {
+   		$customers = $dao->getCustomers();    
+	} catch(Exception $e) {
+		echo "<div class=\"errorMessage\">Error when getting customer info </div>";
+	}
+   
    if($status != "") {
      echo "<div class=\"errorMessage\">$status</div>";
    }
@@ -55,7 +59,13 @@
     //Print customer info
     foreach($customers as $customer) {
      echo "<div> <div> <form action=\"handlers/viewCustomerPhotosHandler.php\">";
-	 $customerPhotos = $dao->getCustomerPhotos($customer["id"]);
+
+	 try {
+	 	$customerPhotos = $dao->getCustomerPhotos($customer["id"]);
+	 } catch(Exception $e) {
+		echo "<div class=\"errorMessage\">Error when getting customer photos </div>";
+	 }
+
 	 if(sizeof($customerPhotos) == 0) {
 		$customerPhotoPath = "photos/noPhoto.jpg";
 	 } else {

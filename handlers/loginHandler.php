@@ -31,7 +31,14 @@
 
  //Check that user and password are in the database 
  $dao = new Dao();
- $users = $dao->login($_POST["username"], $_POST["password"]);
+ try {
+ 	$users = $dao->login($_POST["username"], $_POST["password"]);
+ } catch(Exception $e) {
+  	$_SESSION["status"] = "Error when locating user"; 
+	header("Location: ../customerPhotosLogin.php"); 
+	exit;
+ }
+
  if(sizeof($users) == 1) {
 	$_SESSION["loggedIn"] = true;
   	$_SESSION["userId"] = $users[0]["id"];
@@ -44,7 +51,7 @@
 	//Reroute user based on adminpermission
 	if($users[0]["adminPermission"] == 0) {
 		$_SESSION["adminPermission"] = false;
-        header("Location: ../customerPhotos.php");
+ 		header("Location: customerPhotosHandler.php");
 		exit;
 	} else {
 		$_SESSION["adminPermission"] = true;

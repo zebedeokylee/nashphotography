@@ -26,8 +26,6 @@
 	unset($_SESSION["status"]);
  }
   
- print_r($_SESSION);
- 
 ?>
 
 <html>
@@ -57,12 +55,19 @@
     
     //Get the already existing info for the customer
 	$dao = new Dao();
-    $customerInfo = $dao->getCustomer($customerId);
+
+    try{
+		$customerInfo = $dao->getCustomer($customerId);
+	} catch(Exception $e) {
+		$_SESSION["status"] = "Error when getting customer " . $customerId . " info: " . $e->getMessage();
+ 		header("Location: customerPhotos.php");	
+    	exit;
+	}
+
     $customerUsername = $customerInfo["username"];
     $customerFirstName = $customerInfo["firstName"];
     $customerLastName = $customerInfo["lastName"];
     $customerIsActive = $customerInfo["isActive"];
-    print_r($customerInfo);
    } else { 
    	if(isset($_SESSION["customerId"])) {
  	 $customerId = $_SESSION["customerId"]; 
@@ -132,8 +137,8 @@
    </div>
    <div>
    <div>
-    <label for="customerPassword">Password: </label>
-    <input type="customerPassword" name="customerPassword" id="customerPassword" value="">
+    <label for="customerPassword"><?php echo ($customerId == 0 ? "Password:" : "Reset Password:"); ?></label>
+    <input type="password" name="customerPassword" id="customerPassword" value="">
     <div class="errorMessage"><?php echo $customerPasswordStatus;?></div>
    </div>
    <div>

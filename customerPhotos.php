@@ -28,7 +28,6 @@
 
  //Find customer id to load
  $customerId = $_SESSION["adminPermission"] ? $_SESSION["loadCustomerId"] : $_SESSION["userId"]; 
- print_r($_SESSION); 
 ?>
 
 <html>
@@ -51,27 +50,42 @@
    }
   ?>
 
-  <div class="slideShow">
-   <div><img class="selectedSlide" src="photos/main.jpg"></div>
-
    <?php
     $dao = new Dao();
     $gallery = $dao -> getCustomerPhotos($customerId);    
-    
-    $_SESSION["gallerySize"] = sizeof($gallery);
- 	if(!isset($_SESSION["slideShowIndex"])) {
-		$_SESSION["slideShowIndex"] = 0;
+	$_SESSION["customerGallerySize"] = sizeof($gallery);
+ 	if(!isset($_SESSION["customerGalleryIndex1"])) {
+		$_SESSION["customerGalleryIndex1"] = 0;
+		$_SESSION["customerGalleryIndex2"] = 1;
+		$_SESSION["customerGalleryIndex3"] = 2;
 	}
-
+    $noPhotoPath = "photos/noPhoto.jpg";
+	echo "<div class=\"slideShow\">";
+    echo "<div><img class=\"selectedSlide\" src=\"";
+	echo (sizeof($gallery) == 0) ? $noPhotoPath : $gallery[0];
+	echo "\"></div>";
     echo "<ul class=\"slides\">";
-    echo "<li> <form action=\"handlers/leftArrowHandler.php\">";
-	echo "<input type=\"image\" class=\"arrow\" src=\"LeftArrow.png\"></form></li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["slideShowIndex"]] . "\"</li>";
-   ?>
+    echo "<li> <form action=\"handlers/leftArrowCustomerHandler.php\">";
+	echo "<input type=\"image\" class=\"arrow\" src=\"LeftArrow.png\"/></form></li>";
+	
+	//Slide 1
+	echo "<li> <img class=\"slide\" src=\"";
+	echo (sizeof($gallery) == 0) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex1"]];
+	echo "\"</li>";
+    
+	//Slide 2
+	echo "<li> <img class=\"slide\" src=\"";
+	echo (sizeof($gallery) <= 1) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex2"]];
+	echo "\"</li>";
 
-    <li><img class="slide" src="photos/main.jpg"></li>
-    <li><img class="slide" src="photos/main.jpg"></li>
-    <li><img class="arrow" src="RightArrow.png"></li>
+	//Slide 3
+	echo "<li> <img class=\"slide\" src=\"";
+	echo (sizeof($gallery) <= 2) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex3"]];
+	echo "\"</li>";
+
+    echo "<li> <form action=\"handlers/RightArrowCustomerHandler.php\">";
+	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
+   ?>
    </ul>
   </div>
   
