@@ -4,17 +4,17 @@
  
  class Dao {
 
-  private $host = "localhost";
+/*  private $host = "localhost";
   private $db = "nashPhotography";
   private $user = "root";
   private $password = "root";
+*/
 
-
-/*  private $host = "us-cdbr-iron-east-04.cleardb.net";
+  private $host = "us-cdbr-iron-east-04.cleardb.net";
   private $db = "heroku_4254fa8ab32f37d";
   private $user = "bd1074010cdff0";
   private $password = "3bdb2b75";
-*/
+
    public function getGalleryPhotos() {
    $galleryPhotos = glob("photos/gallery/*");
    $i = 0;
