@@ -34,22 +34,25 @@
  }
  
  //if exists, delete
- $zipPath = "../photos/customerPhotos/" . $_GET["customerId"] . "/zipfile.zip";
+ $zipPath = "../photos/customerPhotos/" . $_GET["customerId"] . "/nashPhotography.zip";
 
+ //code from https://akrabat.com/creating-a-zip-file-with-phps-ziparchive/
  $zip = new ZipArchive();
  $zip->open($zipPath, ZipArchive::CREATE);
  
  foreach($photos as $photo) {
-  $zip->addFile($photo, $photo);
+  $zip->addFile($photo, basename($photo));
  }
  $zip->close();
+ 
+ $_SESSION["photos"] = $photos;
 
  $filename = $zipPath;
- $name = "nashPhotographyPhotos";
+ $name = basename($filename);
  $finfo = finfo_open(FILEINFO_MIME_TYPE);
  $mimeType = finfo_file($finfo, $filename);
  $size = filesize($filename);
-
+ 
  if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
   header('Cache-Control: max-age=120');
   header('Pragma: public');

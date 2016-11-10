@@ -20,7 +20,7 @@
    $i = 0;
    $filteredGalleryPhotos = array();
    foreach($galleryPhotos as $photo) {
-    if($photo != "." && $photo != "photos/gallery/zipfile.zip") {
+    if($photo != "." && $photo != "photos/gallery/nashPhotography.zip") {
  		$filteredGalleryPhotos[$i] = $photo;
 		$i++;
 	}

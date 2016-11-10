@@ -26,6 +26,10 @@
 	unset($_SESSION["status"]);
  }
 
+  if(isset($_SESSION["photos"])) {
+		print_r($_SESSION["photos"]);
+	}
+
  //Find customer id to load
  $customerId = $_SESSION["adminPermission"] ? $_SESSION["loadCustomerId"] : $_SESSION["userId"]; 
 ?>
