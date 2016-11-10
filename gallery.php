@@ -46,7 +46,7 @@
     echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex1"]] . "\"</li>";
     echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex2"]] . "\"</li>";
     echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex3"]] . "\"</li>";
-    echo "<li> <form action=\"handlers/RightArrowHandler.php\">";
+    echo "<li> <form action=\"handlers/rightArrowHandler.php\">";
 	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
    ?>
    </ul>
