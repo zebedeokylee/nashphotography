@@ -44,7 +44,8 @@
    echo "<form  action=\"handlers/downloadPhotosHandler.php\">";
    echo "<input title=\"Download photos\" type=\"image\" id=\"downloadLink\" src=\"download.png\" name=\"customerId\" value=\"" . $customerId . "\"></form>";
    require_once("navigation.php");
-   
+  
+   //display status 
    if($status != "") {
      echo "<div class=\"errorMessage\">$status</div>";
    }

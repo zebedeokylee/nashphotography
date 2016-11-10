@@ -6,12 +6,14 @@
  if(isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] || !isset($_SESSION["loggedIn"])) {
 	$_SESSION["status"] = "You must log in first";
 	header("Location: customerPhotosLogin.php");
+	exit;
  } 	 
 
  //Redirect if not admin
  if(!$_SESSION["adminPermission"]) {
 	$_SESSION["status"] = "You do not have admin permission to view the customer admin page";
  	header("Location: handlers/customerPhotosHandler.php");	
+	exit;
  }
 
  //Select Page
@@ -42,16 +44,18 @@
    require_once("Dao.php");
    require_once("navigation.php");
    
-   $dao = new Dao();
+   //display status   
+   if($status != "") {
+     echo "<div class=\"errorMessage\">$status</div>";
+   }
+    
+ 	$dao = new Dao();
 	try {
    		$customers = $dao->getCustomers();    
 	} catch(Exception $e) {
 		echo "<div class=\"errorMessage\">Error when getting customer info </div>";
 	}
-   
-   if($status != "") {
-     echo "<div class=\"errorMessage\">$status</div>";
-   }
+
   ?>
   
    <div class="customerProfiles center"> 
