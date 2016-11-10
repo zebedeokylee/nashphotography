@@ -2,6 +2,7 @@
  if(!isset($_SESSION))
 	session_start();
  
+ // 
  if(isset($_SESSION["customerGallerySize"])) {
 	if($_SESSION["customerGallerySize"] <= 3) {
 		header("Location: ../customerPhotos.php");
