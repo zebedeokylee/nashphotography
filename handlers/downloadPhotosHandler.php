@@ -45,8 +45,6 @@
  }
  $zip->close();
  
- $_SESSION["photos"] = $photos;
-
  $filename = $zipPath;
  $name = basename($filename);
  $finfo = finfo_open(FILEINFO_MIME_TYPE);

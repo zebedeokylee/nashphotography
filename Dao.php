@@ -33,7 +33,7 @@
    $i = 0;
    $filteredCustomerPhotos = array();
    foreach($customerPhotos as $photo) {
-    if($photo != "." && $photo != "photos/customerPhotos/" . $id . "/zipfile.zip") {
+    if($photo != "." && $photo != "photos/customerPhotos/" . $id . "/nashPhotography.zip") {
  		$filteredCustomerPhotos[$i] = $photo;
 		$i++;
 	}
