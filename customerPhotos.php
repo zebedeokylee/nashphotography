@@ -83,7 +83,7 @@
 	echo (sizeof($gallery) <= 2) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex3"]];
 	echo "\"</li>";
 
-    echo "<li> <form action=\"handlers/RightArrowCustomerHandler.php\">";
+    echo "<li> <form action=\"handlers/rightArrowCustomerHandler.php\">";
 	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
    ?>
    </ul>
