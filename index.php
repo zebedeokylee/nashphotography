@@ -1,3 +1,12 @@
+<?php
+ if(!isset($_SESSION))
+	session_start();
+ 
+ //Select Page
+ $_SESSION["selectedPage"] = "";
+  
+?>
+
 <html>
  <head>
   <title>Nash Photography</title>

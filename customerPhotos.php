@@ -6,10 +6,29 @@
  if(isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] || !isset($_SESSION["loggedIn"])) {
 	$_SESSION["status"] = "You must log in first";
 	header("Location: customerPhotosLogin.php");
+ 	exit;
  } 	 
+
+ //Redirect if admin but no customer login id set   
+ if($_SESSION["adminPermission"] && !isset($_SESSION["loadCustomerId"])) {
+	$_SESSION["status"] = "You must select a customer photo below to view the customer photos page.";
+	header("Location: customerPhotosAdmin.php");
+    exit;
+ }
  
- print_r($_SESSION);
- 
+ //Select Page
+ $_SESSION["selectedPage"] = "customerPhotos";
+
+ //Check status 
+ $status = "";
+ if(isset($_SESSION["status"])) {
+ 	$status = $_SESSION["status"];
+	unset($_SESSION["status"]);
+ }
+
+ //Find customer id to load
+ $customerId = $_SESSION["adminPermission"] ? $_SESSION["loadCustomerId"] : $_SESSION["userId"]; 
+ print_r($_SESSION); 
 ?>
 
 <html>
@@ -22,8 +41,14 @@
  </head>
 
  <body class="greenBackground">
-  <?php 
+  <?php
+   echo "<form  action=\"handlers/downloadPhotosHandler.php\">";
+   echo "<input title=\"Download photos\" type=\"image\" id=\"downloadLink\" src=\"download.png\" name=\"customerId\" value=\"" . $customerId . "\"></form>";
    require_once("navigation.php");
+   
+   if($status != "") {
+     echo "<div class=\"errorMessage\">$status</div>";
+   }
   ?>
 
   <div class="slideShow">
@@ -31,7 +56,7 @@
 
    <?php
     $dao = new Dao();
-    $gallery = $dao -> getCustomerPhotos($_SESSION["loadCustomerId"]);    
+    $gallery = $dao -> getCustomerPhotos($customerId);    
     
     $_SESSION["gallerySize"] = sizeof($gallery);
  	if(!isset($_SESSION["slideShowIndex"])) {

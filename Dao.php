@@ -4,26 +4,24 @@
  
  class Dao {
 
-/*  private $host = "localhost";
+  private $host = "localhost";
   private $db = "nashPhotography";
   private $user = "root";
   private $password = "root";
-*/
 
 
-  private $host = "us-cdbr-iron-east-04.cleardb.net";
+/*  private $host = "us-cdbr-iron-east-04.cleardb.net";
   private $db = "heroku_4254fa8ab32f37d";
   private $user = "bd1074010cdff0";
   private $password = "3bdb2b75";
-
+*/
    public function getGalleryPhotos() {
-   $galleryPhotos = glob("photos/*.jpg");
+   $galleryPhotos = glob("photos/gallery/*.jpg");
    return $galleryPhotos;
   }
 
-  public function getCustomerPhotos($id) {
-   $director = "photos/" . $id . "/";
-   $customerPhotos = glob("photos/customerPhotos/" . $id . "/*.jpg");
+  public function getCustomerPhotos($id, $relativeDirectory="") {
+   $customerPhotos = glob($relativeDirectory . "photos/customerPhotos/" . $id . "/*.jpg");
    return $customerPhotos;
   }
   
@@ -34,7 +32,7 @@
   
   public function login($username, $password) {
    $conn =$this->getConnection();
-   $loginQuery = "Select id, adminPermission from users where username = :username and password = :password";
+   $loginQuery = "Select id, adminPermission from users where username = :username and password = :password and isActive = 1";
    $q = $conn->prepare($loginQuery);
    $q->bindParam(":username", $username);
    $q->bindParam(":password", $password);
@@ -64,7 +62,61 @@
    reset($results);
    return $results[0];
   }
- 
+  
+  public function getCustomerIdByUsername($username) {
+   $conn =$this->getConnection();
+   $query = "Select id, username, firstName, lastName, isActive from users where username = :username";
+   $q = $conn->prepare($query);
+   $q->bindParam(":username", $username);
+   $q->execute();
+   $results = $q->fetchAll();
+   reset($results);
+   return $results[0]["id"];
+  }
+  
+  public function getCustomerByUsername($username) {
+   $conn =$this->getConnection();
+   $query = "Select id, username, firstName, lastName, isActive from users where username = :username";
+   $q = $conn->prepare($query);
+   $q->bindParam(":username", $username);
+   $q->execute();
+   $results = $q->fetchAll();
+   return reset($results);
+  }
+  
+  public function updatePassword($id, $password) {
+   $conn =$this->getConnection();
+   $query = "Update users set password = :password where id = :id";
+   $q = $conn->prepare($query);
+   $q->bindParam(":id", $id);
+   $q->bindParam(":password", $password);
+   $q->execute();
+  }
+  
+  public function saveCustomerInfo($id, $username, $firstName, $lastName, $isActive) {
+   $conn =$this->getConnection();
+   $query = "Update users set username = :username, firstName = :firstName, lastName = :lastName, isActive = :isActive where id = :id";
+   $q = $conn->prepare($query);
+   $q->bindParam(":id", $id);
+   $q->bindParam(":username", $username);
+   $q->bindParam(":firstName", $firstName);
+   $q->bindParam(":lastName", $lastName);
+   $q->bindParam(":isActive", $isActive);
+   $q->execute();
+  }
+  
+  public function insertCustomer($username, $password, $firstName, $lastName, $isActive) {
+   $conn =$this->getConnection();
+   $query = "insert into users (username, password, firstname, lastname, adminPermission, isActive) values (:username, :password, :firstName, :lastName, 0, isActive)";
+   $q = $conn->prepare($query);
+   $q->bindParam(":username", $username);
+   $q->bindParam(":password", $password);
+   $q->bindParam(":firstName", $firstName);
+   $q->bindParam(":lastName", $lastName);
+   $q->bindParam(":isActive", $isActive);
+   $q->execute();
+  }
+  
   public function getConnection() {
    return new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->password);
   }

@@ -13,11 +13,20 @@
 }
 
 .yellowBackground {
- background-color: #ECEEC4;
+ background-color: #ECEEC2;
 }
 
 .orangeBackground {
  background-color: #E8CA94;
+}
+
+#downloadLink {
+ float: right;
+ width: 40px;
+}
+
+#selectedPage {
+ text-decoration: underline;
 }
 
 footer {
@@ -47,6 +56,7 @@ nav {
  width: 70%; 
 }
 */
+
 .center {
  margin: auto;
 }
@@ -70,6 +80,22 @@ nav > div > ul > li > a {
  color: #900C3F;
 }
  
+.confirmationMessage {
+ text-align: center;
+ text-decoration: none;
+ font-family: Georgia, serif;
+ font-size: 15px;
+ color: blue;
+}
+
+.errorMessage {
+ text-align: center;
+ text-decoration: none;
+ font-family: Georgia, serif;
+ font-size: 15px;
+ color: red;
+}
+
 .navFont {
  text-decoration: none;
  font-family: Georgia, serif;
@@ -81,9 +107,13 @@ nav > div > ul > li > a {
 }
 
 .slideShow > div, .slideShow > ul {
- width: 40%;
+ width: 45%;
  margin: auto;
 }
+
+.slideShow > ul > li > form {
+ display: inline;
+} 
 
 .slideShow {
  padding-top: 25px;
@@ -109,8 +139,8 @@ nav > div > ul > li > a {
 .arrow {
  width: 20px;
  position: relative;
- top: 50%;
- transform: translateY(-75%);
+ top: 20%;
+ transform: translateY(-50%);
 }
 
 .login {

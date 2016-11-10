@@ -2,6 +2,7 @@
  if(!isset($_SESSION))
 	session_start();
 
+ //if user is already logged in, redirect to correct customer page based on admin permission
  if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
     if(isset($_SESSION["adminPermission"]) && $_SESSION["adminPermission"]) {
 		header("Location: customerPhotosAdmin.php");
@@ -9,12 +10,21 @@
  		header("Location: customerPhotos.php");
 	}
  }
+ 
+ //Select Page
+ $_SESSION["selectedPage"] = "customerPhotos";
 
  print_r($_SESSION);
  
+ //Get info from unsuccessful login attempt and clear it
  $username = "";
  if(isset($_SESSION["username"])) {
  	$username = $_SESSION["username"]; 
+ } 
+ 
+ $status = "";
+ if(isset($_SESSION["status"])) {
+ 	$status = $_SESSION["status"];
  }
 
 ?>
@@ -35,7 +45,7 @@
   <form class="login" action="handlers/loginHandler.php" method="POST">
    <div>
 	<label for="username">Username: </label>
-    <input type="text" name="username" id="username" value="<?php echo $username; ?>"/>
+    <input type="text" name="username" id="username" value="<?php echo htmlentities($username); ?>"/>
    </div>
    <div>
     <label for="password">Password: </label>
@@ -44,6 +54,11 @@
    <div>
     <input type="submit" value="Login"/>
    </div>
+   <?php
+	if($status != "") {
+	 echo "<div class=\"errorMessage\">$status</div>";
+    }
+   ?>
   </form>
   
   <?php
