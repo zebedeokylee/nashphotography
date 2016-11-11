@@ -32,7 +32,7 @@
  	header("Location: ../customerPhotos.php");	
 	exit;
  }
- 
+
  //if exists, delete
  $zipPath = "../photos/customerPhotos/" . $_GET["customerId"] . "/nashPhotography.zip";
 
