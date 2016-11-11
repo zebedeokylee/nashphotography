@@ -3,7 +3,6 @@
 	session_start();
 
  $_SESSION["selectedPage"] = "contact";
-
 ?>
 
 <html>
