@@ -63,7 +63,7 @@
     $noPhotoPath = "photos/noPhoto.jpg";
 	echo "<div class=\"slideShow\">";
     echo "<div><img class=\"selectedSlide\" src=\"";
-	echo (sizeof($gallery) == 0) ? $noPhotoPath : $gallery[0];
+	echo (sizeof($gallery) == 0) ? $noPhotoPath : htmlentities($gallery[0]);
 	echo "\"></div>";
     echo "<ul class=\"slides\">";
     echo "<li> <form action=\"handlers/leftArrowCustomerHandler.php\">";
@@ -71,17 +71,17 @@
 	
 	//Slide 1
 	echo "<li> <img class=\"slide\" src=\"";
-	echo (sizeof($gallery) == 0) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex1"]];
+	echo (sizeof($gallery) == 0) ? $noPhotoPath : htmlentities($gallery[$_SESSION["customerGalleryIndex1"]]);
 	echo "\"</li>";
     
 	//Slide 2
 	echo "<li> <img class=\"slide\" src=\"";
-	echo (sizeof($gallery) <= 1) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex2"]];
+	echo (sizeof($gallery) <= 1) ? $noPhotoPath : htmlentities($gallery[$_SESSION["customerGalleryIndex2"]]);
 	echo "\"</li>";
 
 	//Slide 3
 	echo "<li> <img class=\"slide\" src=\"";
-	echo (sizeof($gallery) <= 2) ? $noPhotoPath : $gallery[$_SESSION["customerGalleryIndex3"]];
+	echo (sizeof($gallery) <= 2) ? $noPhotoPath : htmlentities($gallery[$_SESSION["customerGalleryIndex3"]]);
 	echo "\"</li>";
 
     echo "<li> <form action=\"handlers/rightArrowCustomerHandler.php\">";

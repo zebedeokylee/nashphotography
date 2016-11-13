@@ -73,7 +73,7 @@
 	 if(sizeof($customerPhotos) == 0) {
 		$customerPhotoPath = "photos/noPhoto.jpg";
 	 } else {
-	 	$customerPhotoPath = $customerPhotos[0];     
+	 	$customerPhotoPath = htmlentities($customerPhotos[0]);     
  	 }
 	 echo "<input type=\"image\" title=\"View Customer Photos\" class=\"customerProfilePicture\" src=\"$customerPhotoPath\" name=\"customerId\" value=\"" . $customer["id"] . "\"></form></div>";
  	 echo "<div class=\"customerName\">" . htmlentities($customer["firstName"]) . " " . htmlentities($customer["lastName"]);

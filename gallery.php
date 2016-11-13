@@ -38,14 +38,14 @@
 		$_SESSION["galleryIndex3"] = 2;
 	}
   	echo "<div class=\"slideShow\">";
-  	echo "<div><img class=\"selectedSlide\" src=\"" . $gallery[0] . "\"></div>";
+  	echo "<div><img class=\"selectedSlide\" src=\"" . htmlentities($gallery[0]) . "\"></div>";
 
     echo "<ul class=\"slides\">";
     echo "<li> <form action=\"handlers/leftArrowHandler.php\">";
 	echo "<input type=\"image\" class=\"arrow\" src=\"LeftArrow.png\"/></form></li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex1"]] . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex2"]] . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . $gallery[$_SESSION["galleryIndex3"]] . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex1"]]) . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex2"]]) . "\"</li>";
+    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex3"]]) . "\"</li>";
     echo "<li> <form action=\"handlers/rightArrowHandler.php\">";
 	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
    ?>
