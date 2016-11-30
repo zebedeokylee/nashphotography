@@ -43,24 +43,29 @@
   ?>
 
   <form class="login" action="handlers/loginHandler.php" method="POST">
-   <div>
-	<label for="username">Username: </label>
-    <input type="text" name="username" id="username" value="<?php echo htmlentities($username); ?>"/>
+   <div class="columns">
+	<div class="column columnLabels">
+	 <div>
+	  <div><label for="username">Username: </label></div>
+      <div><label for="password">Password: </label></div>
+     </div>
+    </div>
+    <div class="column">
+     <div><input type="text" name="username" id="username" value="<?php echo htmlentities($username); ?>"/></div>
+     <div><input type="password" name="password" id="password" value=""></div>
+     <div class="submit">
+      <input type="submit" value="Login"/>
+     </div>
+    </div>
    </div>
-   <div>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password" value="">
-   </div>
-   <div>
-    <input type="submit" value="Login"/>
-   </div>
+
    <?php
 	if($status != "") {
 	 echo "<div class=\"errorMessage\">$status</div>";
     }
    ?>
   </form>
-  
+ 
   <?php
    require_once("footer.php");
   ?>

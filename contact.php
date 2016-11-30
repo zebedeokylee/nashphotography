@@ -19,16 +19,16 @@
   ?>
 
   <div class="info">
-   <h1>Contact</h1>
 
    <h2>Phone</h2>
-   <p>(xxx)-xxx-xxxx</p>
+   <div>(xxx)-xxx-xxxx</div>
  
    <h2>Email</h2>
-   <p>email@email.com</p>  
+   <div>email@email.com</div>  
 
    <h2>Loaction</h2>
-   <p>xxxx street address</p>
+   <div>xxxx street address</div>
+   <div>Boise, ID 83706</div>
   <div> 
   
   <?php

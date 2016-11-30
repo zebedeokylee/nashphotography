@@ -4,7 +4,7 @@
 		session_start();
 	
 	if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
-		echo "<div class=\"logout\"><a href=\"handlers/logoutHandler.php\">Logout</a></div>";
+		echo "<div class=\"logout\"><a href=\"handlers/logoutHandler.php\"><button>Logout</button></a></div>";
 	}
  
 	$selectedPage = "";

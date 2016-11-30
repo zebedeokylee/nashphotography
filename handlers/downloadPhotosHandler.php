@@ -35,13 +35,15 @@
 
  //if exists, delete
  $zipPath = "../photos/customerPhotos/" . $_GET["customerId"] . "/nashPhotography.zip";
-
+ 
  //code from https://akrabat.com/creating-a-zip-file-with-phps-ziparchive/
  $zip = new ZipArchive();
  $zip->open($zipPath, ZipArchive::CREATE);
  
  foreach($photos as $photo) {
-  $zip->addFile($photo, basename($photo));
+//  if(strpos(basename($photo),"nashPhotography.zip")) {
+  	$zip->addFile($photo, basename($photo));
+//  }
  }
  $zip->close();
  

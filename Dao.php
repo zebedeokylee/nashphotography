@@ -4,12 +4,6 @@
  
  class Dao {
 
-/*  private $host = "localhost";
-  private $db = "nashPhotography";
-  private $user = "root";
-  private $password = "root";
-*/
-
   private $host = "us-cdbr-iron-east-04.cleardb.net";
   private $db = "heroku_4254fa8ab32f37d";
   private $user = "bd1074010cdff0";
@@ -47,11 +41,12 @@
   }
   
   public function login($username, $password) {
+   $hashedPassword = hash("sha256", $password . "salt32145898sd928382348dfl*!");
    $conn =$this->getConnection();
    $loginQuery = "Select id, adminPermission from users where username = :username and password = :password and isActive = 1";
    $q = $conn->prepare($loginQuery);
    $q->bindParam(":username", $username);
-   $q->bindParam(":password", $password);
+   $q->bindParam(":password", $hashedPassword);
    $q->execute();
    $results = $q->fetchAll();
    reset($results);
@@ -101,11 +96,12 @@
   }
   
   public function updatePassword($id, $password) {
+   $hashedPassword = hash("sha256", $password . "salt32145898sd928382348dfl*!");
    $conn =$this->getConnection();
    $query = "Update users set password = :password where id = :id";
    $q = $conn->prepare($query);
    $q->bindParam(":id", $id);
-   $q->bindParam(":password", $password);
+   $q->bindParam(":password", $hashedPassword);
    $q->execute();
   }
   
@@ -122,11 +118,12 @@
   }
   
   public function insertCustomer($username, $password, $firstName, $lastName, $isActive) {
+   $hashedPassword = hash("sha256", $password . "salt32145898sd928382348dfl*!");
    $conn =$this->getConnection();
    $query = "insert into users (username, password, firstname, lastname, adminPermission, isActive) values (:username, :password, :firstName, :lastName, 0, :isActive)";
    $q = $conn->prepare($query);
    $q->bindParam(":username", $username);
-   $q->bindParam(":password", $password);
+   $q->bindParam(":password", $hashedPassword);
    $q->bindParam(":firstName", $firstName);
    $q->bindParam(":lastName", $lastName);
    $q->bindParam(":isActive", $isActive);

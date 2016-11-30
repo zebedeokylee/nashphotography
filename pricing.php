@@ -20,20 +20,27 @@
   ?>
 
   <div class="info">
-   <h1>Pricing</h1>
+    
+   <h2>Family Session</h2>
+   <div>$350</div>
+   <div>1 Hour Shooting</div>
+   <div>30+ High Resolution Images</div>
+   
+   <h2>Senior Session</h2>
+   <div>$350</div>
+   <div>1 Hour Shooting</div>
+   <div>30+ High Resolution Images</div>
+
+   <h2>Family</h2>
+   <div>$350</div>
+   <div>1 Hour Shooting</div>
+   <div>30+ High Resolution Images</div>
 
    <h2>Wedding</h2>
-   <p>Lorem ipsum dolor sit amet, turpis et facilisis aliquet sit nisl tempor, et per orci risus pede quis, risus nunc aut ut. Tincidunt pellentesque ac, a eros sit tellus. Pharetra vitae nibh faucibus nulla ac sollicitudin, erat turpis amet fermentum et sodales, in dolor facilisis. Quam sem a. Dignissim orci lectus justo placerat, risus mus dolor massa fringilla. Ut ut. Platea convallis dictum quis, a leo molestie mattis, nulla et.</p>
+   <div>$2000</div>
+   <div>1 Hour Engagement Session</div>
+   <div>6 Hour Wedding Coverage</div>
    
-   <h2>Engagement</h2>
-   <p>Lorem ipsum dolor sit amet, turpis et facilisis aliquet sit nisl tempor, et per orci risus pede quis, risus nunc aut ut. Tincidunt pellentesque ac, a eros sit tellus. Pharetra vitae nibh faucibus nulla ac sollicitudin, erat turpis amet fermentum et sodales, in dolor facilisis. Quam sem a. Dignissim orci lectus justo placerat, risus mus dolor massa fringilla. Ut ut. Platea convallis dictum quis, a leo molestie mattis, nulla et.</p>
-   
-   <h2>Family</h2>
-   <p>Lorem ipsum dolor sit amet, turpis et facilisis aliquet sit nisl tempor, et per orci risus pede quis, risus nunc aut ut. Tincidunt pellentesque ac, a eros sit tellus. Pharetra vitae nibh faucibus nulla ac sollicitudin, erat turpis amet fermentum et sodales, in dolor facilisis. Quam sem a. Dignissim orci lectus justo placerat, risus mus dolor massa fringilla. Ut ut. Platea convallis dictum quis, a leo molestie mattis, nulla et.</p>
-   
-   <h2>Individual</h2>
-   <p>Lorem ipsum dolor sit amet, turpis et facilisis aliquet sit nisl tempor, et per orci risus pede quis, risus nunc aut ut. Tincidunt pellentesque ac, a eros sit tellus. Pharetra vitae nibh faucibus nulla ac sollicitudin, erat turpis amet fermentum et sodales, in dolor facilisis. Quam sem a. Dignissim orci lectus justo placerat, risus mus dolor massa fringilla. Ut ut. Platea convallis dictum quis, a leo molestie mattis, nulla et.</p>
-  <div> 
   
   <?php
    require_once("footer.php");

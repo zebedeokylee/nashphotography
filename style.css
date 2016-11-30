@@ -5,7 +5,7 @@
 }
 
 .pinkBackground {
- background-color: #EBCFC4;
+ background-color: #ECECBD;
 }
 
 .greenBackground {
@@ -13,11 +13,11 @@
 }
 
 .yellowBackground {
- background-color: #ECEEC2;
+ background-color: #d9e6f2;
 }
 
 .orangeBackground {
- background-color: #E8CA94;
+ background-color: #ffddcc;
 }
 
 #downloadLink {
@@ -51,12 +51,6 @@ nav {
  margin-bottom: 15px; 
 }
 
-/*
-.subnavigation > ul {
- width: 70%; 
-}
-*/
-
 .center {
  margin: auto;
 }
@@ -66,20 +60,10 @@ nav > div > ul > li {
  padding: 6%;
 }
 
-/*
-.subnavigation > ul > li {
- padding: 7%;
-}
-*/
-
 nav > div > ul > li > a {
- color: white;
+ color: black;
 }
 
-.subnavigation > ul > li {
- color: #900C3F;
-}
- 
 .confirmationMessage {
  text-align: center;
  text-decoration: none;
@@ -98,12 +82,21 @@ nav > div > ul > li > a {
 
 .navFont {
  text-decoration: none;
- font-family: Georgia, serif;
- font-size: 23px;
+ font-family: "Belleza", sans-serif;
+ font-size: 24px;
 }
 
 .inlineCenter {
  text-align: center;
+}
+
+.info > div, .info > h2 {
+ font-family: "Belleza", sans-seriff;
+ text-align: center;
+}
+
+.info > h2 {
+ margin-top: 50px;
 }
 
 .slideShow > div, .slideShow > ul {
@@ -143,14 +136,6 @@ nav > div > ul > li > a {
  transform: translateY(-50%);
 }
 
-.login {
- text-align: center;
- margin: auto;
- width: 50%;
- margin-top: 150px;
- margin-bottom: 150px;
-}
-
 .customerProfiles > div {
  padding-top: 25px;
 }
@@ -183,8 +168,97 @@ nav > div > ul > li > a {
  margin-right: 5px;
 }
 
-.info > h1, .info > h2, .info > p {
- margin-left: 50px;
- width: 50%;
+.gallery {
+ list-style: none outside none;
+ padding-left: 0;
+ margin: 0;
 }
 
+.demo .item {
+ margin-bottom: 60px;
+}
+
+.content-slider .gallery > li {
+ background-color: #ed3020;
+ text-align: center;
+ color: #FFF;
+}
+
+.content-slider h3 {
+ margin: 0;
+ padding: 70px 0;
+}
+
+.demo {
+ width: 60%;
+ margin:auto;
+}
+
+.gallery > li > img {
+ width: 100%;
+}
+
+.login, .editCustomer {
+ width: 100%;
+ margin: auto;
+ margin-bottom: 300px;
+}
+
+.columns {
+ margin-top: 100px;
+}
+
+.column {
+ float:left;
+ width:50%;
+ text-align: center;
+}
+
+.login > .columns > .column {
+ text-align: left;
+}
+
+.columns > .column {
+ text-align: left;
+}
+
+.columnLabels > div {
+ margin-top: 4px;
+}
+
+.columnLabels {
+ width: 50%
+}
+
+.column > div {
+ margin-top: 3px;
+}
+
+.columnLabels > div > div {
+ margin-top: 6px;
+}
+
+.columnLabels > div {
+ width: 25%;
+ float:right;
+}
+
+.submit {
+ float: left;
+}
+
+.errorMessage {
+ clear: both;
+}
+
+footer {
+ clear: both;
+}
+
+footer > span {
+ margin-right: 20px;
+}
+
+.logout > a > button {
+ cursor: pointer;
+}

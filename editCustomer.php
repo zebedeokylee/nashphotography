@@ -125,49 +125,61 @@
    	}
 
   ?>
+  
+  
+ <form name="editCustomer" class="editCustomer" action="handlers/saveCustomerInfoHandler.php" method="POST" enctype="multipart/form-data">
+  <div class="columns">
+   <div class="column columnLabels">
+	<div>
+     <div><label for="id" <?php echo (($customerId == "") ? "hidden" : ""); ?> >Id: </label></div>
+     <div><label for="customerUsername">Username: </label></div>
+     <div><label for="customerPassword"><?php echo ($customerId == 0 ? "Password:" : "Reset Password:"); ?></label></div>
+     <div><label for="customerFirstName">First Name: </label></div>
+	 <div><label for="customerLastName">Last Name: </label></div>
+	 <div><label for="file">Upload Photos: </label></div>
+	 <div><label for="customerIsActive">Active: </label></div>
+    </div>
+   </div>
 
-  <form class="login" action="handlers/saveCustomerInfoHandler.php" method="POST" enctype="multipart/form-data">
-   <div>
-	<label for="id">Id: <?php echo $customerId; ?></label>
+   <div class="column">
+    <div><?php echo $customerId; ?></div>
+	<div><input type="text" name="customerUsername" id="customerUsername" value="<?php echo htmlentities($customerUsername); ?>"/>
+     <span class="errorMessage">
+	  <?php echo $customerUsernameStatus;?>
+     </span>
+    </div>
+    <div><input type="password" name="customerPassword" id="customerPassword" value="">
+     <span class="errorMessage">
+      <?php echo $customerPasswordStatus;?>
+     </span>
+    </div>
+    <div><input type="text" name="customerFirstName" id="customerFirstName" value="<?php echo htmlentities($customerFirstName); ?>"/>
+     <span class="errorMessage">
+      <?php echo $customerFirstNameStatus;?>
+     </span>
+    </div>
+    <div><input type="text" name="customerLastName" id="customerLastName" value="<?php echo htmlentities($customerLastName); ?>"/>
+     <span class="errorMessage">
+	  <?php echo $customerLastNameStatus;?>
+     </span>
+    </div>
+    <div><input type="file" name="file" id="file" multiple/></div> 
+    <div><input type="checkBox" name="customerIsActive" id="customerIsActive" <?php echo ($customerIsActive ? "checked" : ""); ?>/></div>
+    <div class="submit">
+     <input type="submit" value="Save"/>
+    </div>
    </div>
+
+  </div>
+
    <div>
-	<label for="customerUsername">Username: </label>
-    <input type="text" name="customerUsername" id="customerUsername" value="<?php echo htmlentities($customerUsername); ?>"/>
-    <div class="errorMessage"><?php echo $customerUsernameStatus;?></div>
-   </div>
-   <div>
-   <div>
-    <label for="customerPassword"><?php echo ($customerId == 0 ? "Password:" : "Reset Password:"); ?></label>
-    <input type="password" name="customerPassword" id="customerPassword" value="">
-    <div class="errorMessage"><?php echo $customerPasswordStatus;?></div>
-   </div>
-   <div>
-	<label for="customerFirstName">First Name: </label>
-    <input type="text" name="customerFirstName" id="customerFirstName" value="<?php echo htmlentities($customerFirstName); ?>"/>
-    <div class="errorMessage"><?php echo $customerFirstNameStatus;?></div>
-   </div>
-   <div>
-	<label for="customerLastName">Last Name: </label>
-    <input type="text" name="customerLastName" id="customerLastName" value="<?php echo htmlentities($customerLastName); ?>"/>
-    <div class="errorMessage"><?php echo $customerLastNameStatus;?></div>
-   </div>
-   <div>
-	<label for="customerIsActive">Active: </label>
-    <input type="checkBox" name="customerIsActive" id="customerIsActive" <?php echo ($customerIsActive ? "checked" : ""); ?>/>
-   </div>   
-   <div>
-	<label for="file">Upload Photos: </label>
-    <input type="file" name="file" id="file" multiple/>
-   </div>   
-   <div>
-    <input type="submit" value="Save"/>
-    <div class="errorMessage"><?php echo $customerUpdateStatus;?></div>
+	<div class="errorMessage"><?php echo $customerUpdateStatus;?></div>
     <div class="errorMessage"><?php echo $customerPhotosStatus;?></div>
     <div class="confirmationMessage"><?php echo $customerUpdateConfirmation;?></div>
     <div class="confirmationMessage"><?php echo $customerPhotosConfirmation;?></div>
    </div>
   </form>
-  
+
   <?php
    require_once("footer.php");
   ?>

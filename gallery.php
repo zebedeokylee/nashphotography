@@ -13,6 +13,7 @@
   <?php
    require_once("links.php");
   ?>
+  <script src="slider.js"></script> 
  </head>
 
  <body class="pinkBackground">
@@ -30,29 +31,20 @@
 	} catch(Exception $e) {
 		echo "<div class=\"errorMessage\">Error when getting gallery photos </div>";
 	}
-	
-	$_SESSION["gallerySize"] = sizeof($gallery);
- 	if(!isset($_SESSION["galleryIndex1"])) {
-		$_SESSION["galleryIndex1"] = 0;
-		$_SESSION["galleryIndex2"] = 1;
-		$_SESSION["galleryIndex3"] = 2;
-	}
-  	echo "<div class=\"slideShow\">";
-  	echo "<div><img class=\"selectedSlide\" src=\"" . htmlentities($gallery[0]) . "\"></div>";
+   
+	echo "<div class=\"demo\">";
+    echo " <div class=\"item\">";            
+    echo "  <div class=\"clearfix\" >";
+    echo "   <ul id=\"image-gallery\" class=\"gallery list-unstyled cS-hidden\">";
+    foreach($gallery as $photo) {
+		echo "    <li data-thumb=\"" . htmlentities($photo) . "\">";
+    	echo "     <img src=\"" . htmlentities($photo) . "\" />";
+    	echo "    </li>";
+   	} 
+	echo "   </ul>";
+    echo "  </div>";
+    echo " </div>";
 
-    echo "<ul class=\"slides\">";
-    echo "<li> <form action=\"handlers/leftArrowHandler.php\">";
-	echo "<input type=\"image\" class=\"arrow\" src=\"LeftArrow.png\"/></form></li>";
-    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex1"]]) . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex2"]]) . "\"</li>";
-    echo "<li> <img class=\"slide\" src=\"" . htmlentities($gallery[$_SESSION["galleryIndex3"]]) . "\"</li>";
-    echo "<li> <form action=\"handlers/rightArrowHandler.php\">";
-	echo "<input type=\"image\" class=\"arrow\" src=\"RightArrow.png\"/></form></li>";
-   ?>
-   </ul>
-  </div>
-
-  <?php
     require_once("footer.php");
   ?>
  </body>
