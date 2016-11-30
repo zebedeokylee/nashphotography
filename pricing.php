@@ -31,7 +31,7 @@
    <div>1 Hour Shooting</div>
    <div>30+ High Resolution Images</div>
 
-   <h2>Family</h2>
+   <h2>Family Session</h2>
    <div>$350</div>
    <div>1 Hour Shooting</div>
    <div>30+ High Resolution Images</div>
